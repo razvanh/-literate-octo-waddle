@@ -1,9 +1,9 @@
 require "Todos"
 
 describe Todos do
-
+  let(:todo_class) { double(:todo_class) }
   describe "::new" do
-    subject {Todos.new}
+    subject {Todos.new(todo_class)}
 
     it "is initialized" do
       expect(subject.todos).to be_empty
@@ -12,9 +12,9 @@ describe Todos do
 
   describe "#create" do
     it "stores a new todo" do
-      todos = Todos.new
+      expect(todo_class).to receive(:new).with("get milk")
+      todos = Todos.new(todo_class)
       todos.create("get milk")
-      expect(todos.todos[0].text).to eq("get milk")
     end
   end
 

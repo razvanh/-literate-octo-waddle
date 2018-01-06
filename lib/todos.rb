@@ -1,14 +1,14 @@
-require 'todo'
 
 class Todos
   attr_reader :todos
 
-  def initialize
+  def initialize(todo_class)
+    @Todo = todo_class
     @todos = []
   end
 
   def create(text)
-    @todos << Todo.new(text)
+    @todos << @Todo.new(text)
   end
 
 end
