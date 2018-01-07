@@ -19,6 +19,10 @@ class Command
     if command_name(command_text) == "create"
       @todos.create(rest_of_command(command_text))
     end
+
+    if command_name(command_text) == "list"
+      @todos.list
+    end
   end
 
 end

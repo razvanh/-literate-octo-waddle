@@ -11,4 +11,8 @@ class Todos
     @todos << @Todo.new(text)
   end
 
+  def list
+    @todos.each_with_index {|todo,i| puts"#{i+1}. #{todo.text}"}
+  end
+
 end
